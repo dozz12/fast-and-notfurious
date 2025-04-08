@@ -26,15 +26,14 @@ function resetEnemy() {
 }
 
 function checkCollision() {
-  const p = player.getBoundingClientRect();
-  const e = enemy.getBoundingClientRect();
-  const buffer = 10;
+  const playerRect = player.getBoundingClientRect();
+  const enemyRect = enemy.getBoundingClientRect();
 
   return !(
-    p.bottom - buffer < e.top ||
-    p.top + buffer > e.bottom ||
-    p.right - buffer < e.left ||
-    p.left + buffer > e.right
+    playerRect.top > enemyRect.bottom ||
+    playerRect.bottom < enemyRect.top ||
+    playerRect.right < enemyRect.left ||
+    playerRect.left > enemyRect.right
   );
 }
 
@@ -58,3 +57,4 @@ function gameLoop() {
 
 resetEnemy();
 gameLoop();
+
