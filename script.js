@@ -6,7 +6,6 @@ let playerPos = 125;
 let enemyTop = -100;
 let enemySpeed = 2;
 let score = 0;
-
 const moveStep = 25;
 
 document.addEventListener("keydown", (e) => {
@@ -56,6 +55,5 @@ function gameLoop() {
   requestAnimationFrame(gameLoop);
 }
 
-// Start game
 resetEnemy();
 gameLoop();
